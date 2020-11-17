@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ErrorHandler, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Owner } from 'src/app/models/owner';
+import { OwnerService } from '../owner.service';
+import { OwnerViewComponent } from './owner-view/owner-view.component';
 
 @Component({
   selector: 'app-owner-list',
@@ -6,9 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OwnerListComponent implements OnInit {
 
-  constructor() { }
+  public owners: Owner;
+
+  constructor(private ownerService: OwnerService, private router: Router, private modalService: NgbModal) {}
 
   ngOnInit(): void {
+    this.getOwners();
   }
+
+  public getOwners(){
+    this.ownerService.getOwners().subscribe(data => {
+      this.owners = data;
+      console.log('owners',this.owners);
+      
+    }, error => {
+        return new ErrorHandler();
+    });
+  }
+
+  openXl(content) {
+    this.modalService.open(content, { size: 'xl', scrollable: true });
+  }
+
+  open(owner) {
+    const modalRef = this.modalService.open(OwnerViewComponent, { size: 'xl', scrollable: true });
+    modalRef.componentInstance.owner = owner;
+  }
+
+  createOwner() {
+    this.router.navigate(['owner/create']);
+  };
 
 }
