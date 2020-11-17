@@ -1,1 +1,29 @@
-<p>pet-list works!</p>
+<div>
+    <table class="table table-striped">
+      <thead>
+          <th scope="col">Ações</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Apelido</th>
+          <th scope="col">Raça</th>
+          <th scope="col">Especíe</th>
+          <th scope="col">Nome do Dono</th>
+          <th scope="col">Telefone do Dono</th>
+      </thead>
+      <tbody *ngIf="pets; else empty">
+        <tr *ngFor="let pet of pets">
+          <td scope="row">botoes</td>
+          <td scope="row">{{ pet.name }}</td>
+          <td scope="row">{{ pet.nickName }}</td>
+          <td scope="row">{{ pet.breed }}</td>
+          <td scope="row">{{ pet.species }}</td>
+          <td scope="row">{{ pet.ownerName }}</td>
+          <td scope="row">{{ pet.ownerPhone }}</td>
+        </tr>
+      </tbody>
+    </table>  
+  
+  <ng-template #empty>
+      <tr>
+          <td class="text--center" colspan="7">Nenhum resultado encontrado!</td>
+      </tr>
+  </ng-template>
