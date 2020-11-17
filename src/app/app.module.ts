@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToastNoAnimationModule } from 'ngx-toastr/toastr/toast-noanimation.component';
+import { ToastrModule } from 'ngx-toastr';
+import { OwnerModule } from './owner/owner.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ToastNoAnimationModule } from 'ngx-toastr/toastr/toast-noanimation.comp
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ToastNoAnimationModule.forRoot(),
+    ToastrModule.forRoot(),
+    OwnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
