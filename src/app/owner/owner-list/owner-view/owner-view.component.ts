@@ -1,14 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ErrorHandler, Input, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Owner } from 'src/app/models/owner';
+import { OwnerService } from '../../owner.service';
 
 @Component({
   selector: 'app-owner-view',
   templateUrl: './owner-view.component.html'
 })
-export class OwnerViewComponent implements OnInit {
+export class OwnerViewComponent {
 
-  constructor() { }
+  @Input() set owner(owner){
+    this._owner = owner;
+    this.getOwnerPets(owner.id);
+  };
 
-  ngOnInit(): void {
+  public _owner: Owner;
+  public pets: any;
+
+  constructor(private ownerService: OwnerService, public activeModal: NgbActiveModal) {}
+
+  getOwnerPets(id){    
+    this.ownerService.getOwnerPets(id).subscribe(data => {
+      this.pets = data;
+      console.log('pets',this.pets);
+      
+    }, error => {
+        return new ErrorHandler();
+    });
   }
 
 }
