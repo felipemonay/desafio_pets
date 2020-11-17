@@ -34,7 +34,7 @@ export class OwnerUpdateComponent implements OnInit {
       this.toastrService.success('', 'Dados Gravados com sucesso!', {timeOut: 1000});
       return this.router.navigate(['/owner']);
     }, (err) => {
-      // return new ErrorHandler(err).show();
+      return new ErrorHandler();
     });
   }
 
