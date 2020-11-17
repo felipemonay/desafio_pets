@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
+import { PetModule } from './pet/pet.module';
 
 @NgModule({
   declarations: [
