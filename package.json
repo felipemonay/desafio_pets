@@ -22,6 +22,7 @@
     "@angular/router": "~9.1.4",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@ng-bootstrap/ng-bootstrap": "^6.2.0",
+    "@ng-select/ng-select": "^5.0.8",
     "bootstrap": "^4.4.0",
     "ngx-mask": "^11.0.1",
     "ngx-toastr": "^13.1.0",

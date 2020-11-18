@@ -6,6 +6,7 @@ import { PetRoutingModule } from './pet-routing.module';
 import { PetCreateComponent } from './pet-create/pet-create.component';
 import { PetListComponent } from './pet-list/pet-list.component';
 import { PetUpdateComponent } from './pet-update/pet-update.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -19,7 +20,8 @@ import { PetUpdateComponent } from './pet-update/pet-update.component';
     CommonModule,
     NgxMaskModule.forRoot(),
     FormsModule,
-    PetRoutingModule
+    PetRoutingModule,
+    NgSelectModule
   ]
 })
 export class PetModule { }

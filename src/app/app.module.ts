@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastNoAnimationModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
 import { PetModule } from './pet/pet.module';
@@ -19,7 +19,8 @@ import { PetModule } from './pet/pet.module';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ToastrModule.forRoot(),
+    ToastNoAnimationModule.forRoot(),
+    PetModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

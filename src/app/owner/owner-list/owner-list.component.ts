@@ -11,7 +11,7 @@ import { OwnerViewComponent } from './owner-view/owner-view.component';
 })
 export class OwnerListComponent implements OnInit {
 
-  public owners: Owner;
+  public owners: Array<Owner>;
 
   constructor(private ownerService: OwnerService, private router: Router, private modalService: NgbModal) {}
 

@@ -13,7 +13,7 @@ export class OwnerService {
 
   public getOwners() {
     const url = this.baseUrl + '/owner';
-    return this.http.get<Owner>(url);
+    return this.http.get<Array<Owner>>(url);
   }
 
   public getOwnerById(id:number){

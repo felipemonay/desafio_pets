@@ -24,6 +24,8 @@ export class PetListComponent implements OnInit {
           this.getOwner(pet);
           return pet;
         }); 
+        console.log(this.pets);
+        
     }, error => {
         return new ErrorHandler();
     });

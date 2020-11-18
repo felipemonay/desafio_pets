@@ -6,6 +6,6 @@ export class Pet {
     public species: string;
     public owner_name: string;
     public owner_phone: string;
-    public ownderId: string;
+    public ownerId: string;
     
 }
