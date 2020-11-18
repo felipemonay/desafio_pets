@@ -11,7 +11,11 @@
       </thead>
       <tbody *ngIf="pets; else empty">
         <tr *ngFor="let pet of pets">
-          <td scope="row">botoes</td>
+          <td scope="row">
+            <button routerLink="update" [queryParams]="{ id: pet.id }" >
+              <i class="fas fa-edit"></i>
+            </button>
+          </td>
           <td scope="row">{{ pet.name }}</td>
           <td scope="row">{{ pet.nickName }}</td>
           <td scope="row">{{ pet.breed }}</td>
