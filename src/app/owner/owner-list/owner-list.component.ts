@@ -12,6 +12,7 @@ import { OwnerViewComponent } from './owner-view/owner-view.component';
 export class OwnerListComponent implements OnInit {
 
   public owners: Array<Owner>;
+  public filter: Owner = new Owner;
 
   constructor(private ownerService: OwnerService, private router: Router, private modalService: NgbModal) {}
 
@@ -21,9 +22,7 @@ export class OwnerListComponent implements OnInit {
 
   public getOwners(){
     this.ownerService.getOwners().subscribe(data => {
-      this.owners = data;   
-      console.log('owner', this.owners);
-         
+      this.owners = data;
     }, error => {
         return new ErrorHandler();
     });

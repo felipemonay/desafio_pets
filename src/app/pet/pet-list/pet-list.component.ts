@@ -40,7 +40,6 @@ export class PetListComponent implements OnInit {
   public generatePetTableData(){
     this.pets.map((pet) => {
       let owner = this.owners.find((owner) => owner.id === pet.ownerId);
-      console.log('owner', owner);
       if(owner){
         pet.ownerName = owner.name;
         pet.ownerPhone = owner.phone;

@@ -2,12 +2,20 @@
     <table class="table table-striped">
       <thead>
           <th scope="col">Ações</th>
-          <th scope="col">Nome</th>
-          <th scope="col">E-mail</th>
-          <th scope="col">Telefone</th>
+          <th scope="col">
+            <label>Nome</label>
+            <input [(ngModel)]="filter.name" id="filterName" name="filterName" />
+          </th>
+          <th scope="col">
+            <label>E-mail</label>
+            <input [(ngModel)]="filter.email" id="filterEmail" name="filterEmail" /></th>
+          <th scope="col">
+            <label>Telefone</label>
+            <input [(ngModel)]="filter.phone" id="filterPhone" name="filterPhone" />
+          </th>
       </thead>
       <tbody *ngIf="owners; else empty">
-        <tr *ngFor="let owner of owners">
+        <tr *ngFor="let owner of (owners | filterOwnerTable: filter)">
           <td scope="row">
             <button routerLink="update" [queryParams]="{ id: owner.id }" >
               <i class="fas fa-edit"></i>

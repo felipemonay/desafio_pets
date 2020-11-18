@@ -10,6 +10,7 @@ import { OwnerViewComponent } from './owner-list/owner-view/owner-view.component
 import { NameComponent } from './components/fields/name/name.component';
 import { PhoneComponent } from './components/fields/phone/phone.component';
 import { EmailComponent } from './components/fields/email/email.component';
+import { FilterOwnerTable } from '../shared/pipes/filter-owner-table.pipe';
 
 
 
@@ -22,6 +23,7 @@ import { EmailComponent } from './components/fields/email/email.component';
     NameComponent,
     PhoneComponent,
     EmailComponent,
+    FilterOwnerTable,
   ],
   imports: [
     CommonModule,
