@@ -18,7 +18,7 @@
           </td>
           <td scope="row">{{ owner.name }}</td>
           <td scope="row">{{ owner.email }}</td>
-          <td scope="row">{{ owner.phone }}</td>
+          <td scope="row">{{ owner.phone | mask:'(00) 0 0000-0000'}}</td>
         </tr>
       </tbody>
     </table>

@@ -21,16 +21,10 @@ export class OwnerListComponent implements OnInit {
 
   public getOwners(){
     this.ownerService.getOwners().subscribe(data => {
-      this.owners = data;
-      console.log('owners',this.owners);
-      
+      this.owners = data;      
     }, error => {
         return new ErrorHandler();
     });
-  }
-
-  openXl(content) {
-    this.modalService.open(content, { size: 'xl', scrollable: true });
   }
 
   open(owner) {

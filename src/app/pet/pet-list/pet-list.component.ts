@@ -23,9 +23,7 @@ export class PetListComponent implements OnInit {
         this.pets.map((pet) => {
           this.getOwner(pet);
           return pet;
-        }); 
-        console.log(this.pets);
-        
+        });         
     }, error => {
         return new ErrorHandler();
     });

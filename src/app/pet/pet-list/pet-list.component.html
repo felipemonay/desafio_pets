@@ -21,10 +21,13 @@
           <td scope="row">{{ pet.breed }}</td>
           <td scope="row">{{ pet.species }}</td>
           <td scope="row">{{ pet.ownerName }}</td>
-          <td scope="row">{{ pet.ownerPhone }}</td>
+          <td scope="row">{{ pet.ownerPhone | mask:'(00) 0 0000-0000'}}</td>
         </tr>
       </tbody>
     </table>  
+    <button routerLink="create">
+      Novo Pet
+    </button>
   
   <ng-template #empty>
       <tr>

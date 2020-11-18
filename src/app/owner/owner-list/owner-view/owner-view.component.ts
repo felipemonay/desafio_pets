@@ -21,9 +21,7 @@ export class OwnerViewComponent {
 
   getOwnerPets(id){    
     this.ownerService.getOwnerPets(id).subscribe(data => {
-      this.pets = data;
-      console.log('pets',this.pets);
-      
+      this.pets = data;      
     }, error => {
         return new ErrorHandler();
     });

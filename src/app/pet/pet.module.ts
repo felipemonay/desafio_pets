@@ -24,7 +24,7 @@ import { SpeciesComponent } from './components/fields/species/species.component'
     NicknameComponent,
     OwnerComponent,
     BreedComponent,
-    SpeciesComponent
+    SpeciesComponent,
   ],
   imports: [
     CommonModule,

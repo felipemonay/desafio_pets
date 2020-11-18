@@ -1,14 +1,19 @@
 <div>
-    <form #formOwner="ngForm" (submit)="send()" autocomplete="off">
+    <form #formOwner="ngForm" autocomplete="off">
         <app-name [owner]="owner"></app-name>
 
         <app-email [owner]="owner"></app-email>
 
         <app-phone [owner]="owner"></app-phone>
         <div class="">
+            <div class="float-left">
+                <button (click)="delete()" id="btn-delete" class="btn btn-outline-primary">
+                    Deletar &nbsp; <i class="far fa-trash-alt"></i>
+                </button>
+            </div>
             <div class="float-right">
                 <button [disabled]="!owner.name || !owner.email || !owner.phone"
-                        id="btn-cadastrar"
+                        id="btn-cadastrar" (click)="send()"
                         class="btn btn-outline-primary">
                     Atualizar &nbsp; <i class="far fa-paper-plane"></i>
                 </button>

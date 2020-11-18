@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Owner } from 'src/app/models/owner';
 import { OwnerService } from '../owner.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-owner-update',
@@ -23,15 +24,53 @@ export class OwnerUpdateComponent implements OnInit {
   public getOwner(id){
     this.ownerService.getOwnerById(id).subscribe(data => {
       this.owner = data;
-      console.log('owner',this.owner);
     }, error => {
         return new ErrorHandler();
     });
   }
 
-  send() {
+  public send() {
+    Swal.fire({
+      title: 'Atenção',
+      text: 'Deseja atualizar os dados de '+ this.owner.name + ' ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sim',
+      cancelButtonText: 'Não'
+    }).then((response: any) => {
+      if (!response.dismiss) {
+        this.updateOwner();
+      }
+    });
+  }
+
+  private updateOwner(){
     this.ownerService.updateOwner(this.owner).subscribe(success => {
-      this.toastrService.success('', 'Dados Gravados com sucesso!', {timeOut: 1000});
+      this.toastrService.success('', 'Dados atualizados com sucesso!', {timeOut: 1000});
+      return this.router.navigate(['/owner']);
+    }, (err) => {
+      return new ErrorHandler();
+    });
+  }
+
+  public delete(){
+    Swal.fire({
+      title: 'Atenção',
+      text: 'Deseja deletar o dono '+ this.owner.name + ' ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sim',
+      cancelButtonText: 'Não'
+    }).then((response: any) => {
+      if (!response.dismiss) {
+        this.deleteOwner();
+      }
+    });
+  }
+
+  private deleteOwner(){
+    this.ownerService.deleteOwner(this.owner.id).subscribe(success => {
+      this.toastrService.success('', 'Dono apagado com sucesso!', {timeOut: 1000});
       return this.router.navigate(['/owner']);
     }, (err) => {
       return new ErrorHandler();

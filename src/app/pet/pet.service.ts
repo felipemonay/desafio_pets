@@ -12,9 +12,7 @@ export class PetService {
   constructor(private http: HttpClient) { }
 
   getPets() {
-    const url = this.baseUrl + '/pets';
-    console.log('url', url);
-    
+    const url = this.baseUrl + '/pets';    
     return this.http.get<Array<Pet>>(url);
   }
 
