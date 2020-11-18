@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Owner } from 'src/app/models/owner';
 import { Pet } from 'src/app/models/pet';
-import { OwnerService } from 'src/app/owner/owner.service';
 import { PetService } from '../pet.service';
 
 @Component({
@@ -15,7 +14,7 @@ export class PetUpdateComponent implements OnInit {
   pet: Pet = new Pet;
   public owners: Array<Owner>;
 
-  constructor(private ownerService: OwnerService, private toastrService: ToastrService, private activatedRoute: ActivatedRoute, private router: Router, private petService: PetService) { }
+  constructor(private toastrService: ToastrService, private activatedRoute: ActivatedRoute, private router: Router, private petService: PetService) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -28,16 +27,6 @@ export class PetUpdateComponent implements OnInit {
       this.pet = data;
     }, error => {
         return new ErrorHandler();
-    });
-  }
-
-  public getOwners(){
-    this.ownerService.getOwners().subscribe(data => {
-      this.owners = data;
-      console.log('owner', this.owners);
-      
-    }, (err) => {
-      return new ErrorHandler();
     });
   }
 

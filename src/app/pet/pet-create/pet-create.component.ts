@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Owner } from 'src/app/models/owner';
 import { Pet } from 'src/app/models/pet';
-import { OwnerService } from 'src/app/owner/owner.service';
 import { PetService } from '../pet.service';
 
 @Component({
@@ -19,7 +18,7 @@ export class PetCreateComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   send() {
     this.petService.createPet(this.pet).subscribe(success => {
       this.toastrService.success('', 'Dados Gravados com sucesso!', {timeOut: 1000});
