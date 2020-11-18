@@ -1,0 +1,6 @@
+<div class="form-group">
+    <label  [for]="name">
+        {{ label }} <i [title]="help" class="fa fa-question-circle fa-lg" data-toggle="tooltip"></i>
+    </label>
+    <input [(ngModel)]="owner.phone" [id]="name" [name]="name" autocomplete="off" class="form-control" required type="text" mask="(00) 0 0000-0000">
+</div>

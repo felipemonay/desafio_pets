@@ -7,6 +7,9 @@ import { OwnerUpdateComponent } from './owner-update/owner-update.component';
 import { FormsModule } from '@angular/forms';
 import { OwnerRoutingModule } from './owner-routing.module';
 import { OwnerViewComponent } from './owner-list/owner-view/owner-view.component';
+import { NameComponent } from './components/fields/name/name.component';
+import { PhoneComponent } from './components/fields/phone/phone.component';
+import { EmailComponent } from './components/fields/email/email.component';
 
 
 
@@ -16,6 +19,9 @@ import { OwnerViewComponent } from './owner-list/owner-view/owner-view.component
     OwnerViewComponent,
     OwnerCreateComponent,
     OwnerUpdateComponent,
+    NameComponent,
+    PhoneComponent,
+    EmailComponent,
   ],
   imports: [
     CommonModule,
