@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Pet } from '../models/pet';
+import { Pet } from 'src/app/models/pet';
 
 @Injectable({
   providedIn: 'root'

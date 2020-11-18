@@ -1,7 +1,7 @@
 import { Component, ErrorHandler, Input, OnInit, ViewChild } from '@angular/core';
 import { Owner } from 'src/app/models/owner';
 import { Pet } from 'src/app/models/pet';
-import { OwnerService } from 'src/app/owner/owner.service';
+import { OwnerService } from 'src/app/modules/owner/owner.service';
 
 @Component({
   selector: 'app-owner',

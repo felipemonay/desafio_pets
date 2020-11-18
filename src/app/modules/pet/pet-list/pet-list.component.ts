@@ -1,7 +1,7 @@
 import { Component, ErrorHandler, OnInit } from '@angular/core';
 import { Owner } from 'src/app/models/owner';
 import { Pet } from 'src/app/models/pet';
-import { OwnerService } from 'src/app/owner/owner.service';
+import { OwnerService } from '../../owner/owner.service';
 import { PetService } from '../pet.service';
 
 @Component({

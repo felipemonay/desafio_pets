@@ -10,7 +10,8 @@ import { OwnerViewComponent } from './owner-list/owner-view/owner-view.component
 import { NameComponent } from './components/fields/name/name.component';
 import { PhoneComponent } from './components/fields/phone/phone.component';
 import { EmailComponent } from './components/fields/email/email.component';
-import { FilterOwnerTable } from '../shared/pipes/filter-owner-table.pipe';
+import { FilterOwnerTable } from 'src/app/shared/pipes/filter-owner-table.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -29,7 +30,8 @@ import { FilterOwnerTable } from '../shared/pipes/filter-owner-table.pipe';
     CommonModule,
     NgxMaskModule.forRoot(),
     FormsModule,
-    OwnerRoutingModule
+    OwnerRoutingModule,
+    NgbModule
   ]
 })
 export class OwnerModule { }
