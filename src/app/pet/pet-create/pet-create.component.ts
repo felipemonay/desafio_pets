@@ -15,22 +15,11 @@ export class PetCreateComponent implements OnInit {
   public pet: Pet = new Pet;
   public owners: Array<Owner>;
 
-  constructor(private petService: PetService, private toastrService: ToastrService, private router: Router, private ownerService: OwnerService) { }
+  constructor(private petService: PetService, private toastrService: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getOwners();
   }
-
-  public getOwners(){
-    this.ownerService.getOwners().subscribe(data => {
-      this.owners = data;
-      console.log('owner', this.owners);
-      
-    }, (err) => {
-      return new ErrorHandler();
-    });
-  }
-
+  
   send() {
     this.petService.createPet(this.pet).subscribe(success => {
       this.toastrService.success('', 'Dados Gravados com sucesso!', {timeOut: 1000});

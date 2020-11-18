@@ -12,7 +12,6 @@ export class EmailComponent implements OnInit {
   public help: string = 'Informar o e-mail do dono.';
 
   @Input() owner: Owner;
-  @Input() required: boolean;
 
   constructor() { }
 

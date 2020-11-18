@@ -1,37 +1,15 @@
 <div>
     <form #formPet="ngForm" (submit)="send()" autocomplete="off">
-        <div class="form-group">
-            <label class="" for="name">Nome:</label>
-            <input [(ngModel)]="pet.name" autocomplete="off" class="form-control" id="name" name="name" required type="text">
-        </div>
-        <div class="form-group">
-            <label class="" for="email">Apelido:</label>
-            <input [(ngModel)]="pet.nickName" autocomplete="off" class="form-control" id="email" name="email" required type="email">
-        </div>
-        <div class="form-group">
-            <label class="" for="breed">Raça:</label>
-            <input [(ngModel)]="pet.breed" autocomplete="off" class="form-control" id="breed" name="breed" required type="text">
-        </div>
-        <div class="form-group">
-            <label class="" for="species">Espécie:</label>
-            <input [(ngModel)]="pet.species" autocomplete="off" class="form-control" id="species" name="species" required type="text">
-        </div>
-        <div class="form-group">
-            <label class="" for="ownerId">Dono:</label>
-
-            <ng-select [items]="owners" 
-                    bindLabel="name" 
-                    bindValue="id" 
-                    [(ngModel)]="pet.ownerId"
-                    [ngModelOptions]="{standalone: true}">
-            </ng-select>
-
-        </div>
+        <app-name [pet]="pet"></app-name>
+        <app-nickname [pet]="pet"></app-nickname>
+        <app-breed [pet]="pet"></app-breed>
+        <app-species [pet]="pet"></app-species>
+        <app-owner [pet]="pet"></app-owner>
         <div class="">
-            <div [ngClass]="{disabled: !formPet.valid}" class="float-right">
-                <button [disabled]="!formPet.valid"
+            <div class="float-right">
+                <button [disabled]="!pet.name || !pet.nickName || !pet.breed || !pet.species || !pet.ownerId"
                         id="btn-cadastrar"
-                        class="">
+                        class="btn btn-outline-primary">
                     Cadastrar &nbsp; <i class="far fa-paper-plane"></i>
                 </button>
             </div>

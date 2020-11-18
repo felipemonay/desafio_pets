@@ -1,8 +1,8 @@
 <div>
     <form #formOwner="ngForm" (submit)="send()" autocomplete="off">
-        <app-name [owner]="owner" required></app-name>
+        <app-name [owner]="owner"></app-name>
 
-        <app-email [owner]="owner" [required]="true"></app-email>
+        <app-email [owner]="owner"></app-email>
 
         <app-phone [owner]="owner"></app-phone>
         <div class="">
