@@ -20,8 +20,8 @@
           <td scope="row">{{ pet.nickName }}</td>
           <td scope="row">{{ pet.breed }}</td>
           <td scope="row">{{ pet.species }}</td>
-          <td scope="row">{{ pet.ownerName }}</td>
-          <td scope="row">{{ pet.ownerPhone | mask:'(00) 0 0000-0000'}}</td>
+          <td scope="row">{{ pet.ownerName ? pet.ownerName : 'Dono deletado'}}</td>
+          <td scope="row">{{ pet.ownerPhone ? (pet.ownerPhone | mask:'(00) 0 0000-0000') : 'Dono deletado'}}</td>
         </tr>
       </tbody>
     </table>  

@@ -1,4 +1,5 @@
 import { Component, ErrorHandler, OnInit } from '@angular/core';
+import { Owner } from 'src/app/models/owner';
 import { Pet } from 'src/app/models/pet';
 import { OwnerService } from 'src/app/owner/owner.service';
 import { PetService } from '../pet.service';
@@ -10,6 +11,7 @@ import { PetService } from '../pet.service';
 export class PetListComponent implements OnInit {
   
   public pets: Array<Pet>;
+  public owners: Array<Owner>;
 
   constructor(private petService: PetService,private ownerService: OwnerService) { }
 
@@ -20,23 +22,31 @@ export class PetListComponent implements OnInit {
   public getPets(){
     this.petService.getPets().subscribe(data => {
       this.pets = data;
-        this.pets.map((pet) => {
-          this.getOwner(pet);
-          return pet;
-        });         
+      this.getOwner();       
     }, error => {
         return new ErrorHandler();
     });
   }
 
-  public getOwner(pet){
-    this.ownerService.getOwnerById(pet.id).subscribe(data => {
-      pet.ownerName = data.name;
-      pet.ownerPhone = data.phone;
+  public getOwner(){
+    this.ownerService.getOwners().subscribe(data => {
+      this.owners = data;
+      this.generatePetTableData();
     }, error => {
         return new ErrorHandler();
     });
+  }
 
+  public generatePetTableData(){
+    this.pets.map((pet) => {
+      let owner = this.owners.find((owner) => owner.id === pet.ownerId);
+      console.log('owner', owner);
+      if(owner){
+        pet.ownerName = owner.name;
+        pet.ownerPhone = owner.phone;
+      }
+      return pet;
+    });    
   }
 
 }
