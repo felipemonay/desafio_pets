@@ -12,6 +12,7 @@ export class PetListComponent implements OnInit {
   
   public pets: Array<Pet>;
   public owners: Array<Owner>;
+  public filter: Pet = new Pet;
 
   constructor(private petService: PetService,private ownerService: OwnerService) { }
 

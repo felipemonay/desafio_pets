@@ -2,15 +2,33 @@
     <table class="table table-striped">
       <thead>
           <th scope="col">Ações</th>
-          <th scope="col">Nome</th>
-          <th scope="col">Apelido</th>
-          <th scope="col">Raça</th>
-          <th scope="col">Especíe</th>
-          <th scope="col">Nome do Dono</th>
-          <th scope="col">Telefone do Dono</th>
+          <th scope="col">
+            <label>Nome</label>
+            <input [(ngModel)]="filter.name" id="filterName" name="filterName" />
+          </th>
+          <th scope="col">
+            <label>Apelido</label>
+            <input [(ngModel)]="filter.nickName" id="filterNickName" name="filterNickName" />
+          </th>
+          <th scope="col">
+            <label>Raça</label>
+            <input [(ngModel)]="filter.breed" id="filterBreed" name="filterBreed" />
+          </th>
+          <th scope="col">
+            <label>Espécie</label>
+            <input [(ngModel)]="filter.species" id="filterSpecies" name="filterSpecies" />
+          </th>
+          <th scope="col">
+            <label>Nome do Dono</label>
+            <input [(ngModel)]="filter.ownerName" id="filterOwnerName" name="filterOwnerName" />
+          </th>
+          <th scope="col">
+            <label>Telefone do Dono</label>
+            <input [(ngModel)]="filter.ownerPhone" id="filterOwnerPhone" name="filterOwnerPhone" />
+          </th>
       </thead>
       <tbody *ngIf="pets; else empty">
-        <tr *ngFor="let pet of pets">
+        <tr *ngFor="let pet of (pets | filterPetTable : filter)">
           <td scope="row">
             <button routerLink="update" [queryParams]="{ id: pet.id }" >
               <i class="fas fa-edit"></i>

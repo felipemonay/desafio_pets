@@ -12,6 +12,7 @@ import { NicknameComponent } from './components/fields/nickname/nickname.compone
 import { OwnerComponent } from './components/fields/owner/owner.component';
 import { BreedComponent } from './components/fields/breed/breed.component';
 import { SpeciesComponent } from './components/fields/species/species.component';
+import { FilterPetTable } from '../shared/pipes/filter-pet-table.pipe';
 
 
 
@@ -25,6 +26,7 @@ import { SpeciesComponent } from './components/fields/species/species.component'
     OwnerComponent,
     BreedComponent,
     SpeciesComponent,
+    FilterPetTable
   ],
   imports: [
     CommonModule,
