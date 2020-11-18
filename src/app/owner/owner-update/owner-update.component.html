@@ -1,22 +1,15 @@
 <div>
     <form #formOwner="ngForm" (submit)="send()" autocomplete="off">
-        <div class="form-group">
-            <label class="" for="name">Nome:</label>
-            <input [(ngModel)]="owner.name" autocomplete="off" class="form-control" id="name" name="name" required type="text">
-        </div>
-        <div class="form-group">
-            <label class="" for="email">E-mail:</label>
-            <input [(ngModel)]="owner.email" autocomplete="off" class="form-control" id="email" name="email" required type="email">
-        </div>
-        <div class="form-group">
-            <label class="" for="phone">Telefone:</label>
-            <input [(ngModel)]="owner.phone" autocomplete="off" class="form-control" id="phone" name="phone" mask="(00) 0 0000-0000" required type="text">
-        </div>
+        <app-name [owner]="owner" required></app-name>
+
+        <app-email [owner]="owner" [required]="true"></app-email>
+
+        <app-phone [owner]="owner"></app-phone>
         <div class="">
-            <div [ngClass]="{disabled: !formOwner.valid}" class="float-right">
-                <button [disabled]="!formOwner.valid"
+            <div class="float-right">
+                <button [disabled]="!owner.name || !owner.email || !owner.phone"
                         id="btn-cadastrar"
-                        class="">
+                        class="btn btn-outline-primary">
                     Atualizar &nbsp; <i class="far fa-paper-plane"></i>
                 </button>
             </div>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-<a class="navbar-brand" [routerLink]="'.'">Pets e Donos</a>
+<a class="navbar-brand" [routerLink]="'.'">Desafio Pets</a>
 
 <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
     &#9776;
@@ -8,7 +8,7 @@
 <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" [ngStyle]="{display: isMenuCollapsed ? 'none' : 'block'}">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">Home</a>
+            <a class="nav-link" routerLink="home" (click)="isMenuCollapsed = true">Início</a>
         </li>
         <li class="nav-item" ngbDropdown>
             <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">

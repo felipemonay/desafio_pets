@@ -8,11 +8,13 @@ import { ToastNoAnimationModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
 import { PetModule } from './pet/pet.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
