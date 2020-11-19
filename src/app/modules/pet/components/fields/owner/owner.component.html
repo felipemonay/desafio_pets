@@ -4,7 +4,8 @@
     </label>
     <ng-select #owner *ngIf="owners" [items]="owners" 
             bindLabel="name" 
-            bindValue="id" 
+            bindValue="id"
+            placeholder="Selecione o dono" 
             [(ngModel)]="pet.ownerId"
             [ngModelOptions]="{standalone: true}">
     </ng-select>

@@ -2,5 +2,5 @@
     <label  [for]="name">
         {{ label }} <i [title]="help" class="fa fa-question-circle fa-lg" data-toggle="tooltip"></i> *
     </label>
-    <input [(ngModel)]="owner.name" [id]="name" [name]="name" autocomplete="off" class="form-control" required type="text">
+    <input [(ngModel)]="owner.name" placeholder="Nome do dono" [id]="name" [name]="name" autocomplete="off" class="form-control" required type="text">
 </div>
