@@ -1,4 +1,5 @@
 import { Component, ErrorHandler, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Owner } from 'src/app/models/owner';
@@ -12,10 +13,15 @@ import { PetService } from '../pet.service';
 })
 export class PetUpdateComponent implements OnInit {
 
-  pet: Pet = new Pet;
+  public pet: Pet = new Pet;
   public owners: Array<Owner>;
 
-  constructor(private toastrService: ToastrService, private activatedRoute: ActivatedRoute, private router: Router, private petService: PetService) { }
+  constructor(
+    private toastrService: ToastrService, 
+    private activatedRoute: ActivatedRoute, 
+    private router: Router, 
+    private petService: PetService,
+    private locationService: Location) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -77,6 +83,10 @@ export class PetUpdateComponent implements OnInit {
     }, (err) => {
       return new ErrorHandler();
     });
+  }
+
+  public back() {
+    this.locationService.back();
   }
 
 }
