@@ -14,7 +14,9 @@ export class PetListComponent implements OnInit {
   public owners: Array<Owner>;
   public filter: Pet = new Pet;
 
-  constructor(private petService: PetService,private ownerService: OwnerService) { }
+  constructor(
+    private petService: PetService,
+    private ownerService: OwnerService) { }
 
   ngOnInit(): void {
     this.getPets();
