@@ -1,0 +1,55 @@
+<div class="card card-table">
+  <table class="table table-striped">
+    <thead>
+        <th scope="col" class="align-middle">Ações</th>
+        <th scope="col">
+          <label>Nome</label>
+          <input [(ngModel)]="filter.name" id="filterName" name="filterName" type="text" placeholder="Filtre pelo nome" />
+        </th>
+        <th scope="col">
+          <label>Apelido</label>
+          <input [(ngModel)]="filter.nickName" id="filterNickName" name="filterNickName" type="text" placeholder="Filtre pelo apelido" />
+        </th>
+        <th scope="col">
+          <label>Raça</label>
+          <input [(ngModel)]="filter.breed" id="filterBreed" name="filterBreed" type="text" placeholder="Filtre pela raça" />
+        </th>
+        <th scope="col">
+          <label>Espécie</label>
+          <input [(ngModel)]="filter.species" id="filterSpecies" name="filterSpecies" type="text" placeholder="Filtre pela espécie" />
+        </th>
+        <th scope="col">
+          <label>Nome do Dono</label>
+          <input [(ngModel)]="filter.ownerName" id="filterOwnerName" name="filterOwnerName" type="text" placeholder="Filtre pelo dono" />
+        </th>
+        <th scope="col">
+          <label>Telefone do Dono</label>
+          <input [(ngModel)]="filter.ownerPhone" id="filterOwnerPhone" name="filterOwnerPhone" type="text" placeholder="Filtre pelo telefone" />
+        </th>
+    </thead>
+    <tbody *ngIf="pets; else empty">
+      <tr *ngFor="let pet of (pets | filterPetTable : filter)">
+        <td scope="row" class="text-center">
+            <i class="fas fa-edit text-primary" routerLink="update" [queryParams]="{ id: pet.id }"></i>
+        </td>
+        <td scope="row">{{ pet.name }}</td>
+        <td scope="row">{{ pet.nickName }}</td>
+        <td scope="row">{{ pet.breed }}</td>
+        <td scope="row">{{ pet.species }}</td>
+        <td scope="row">{{ pet.ownerName ? pet.ownerName : 'Dono deletado'}}</td>
+        <td scope="row">{{ pet.ownerPhone ? (pet.ownerPhone | mask:'(00) 0 0000-0000') : 'Dono deletado'}}</td>
+      </tr>
+    </tbody>
+  </table>  
+  <div class="card-footer">
+    <button class="btn btn-outline-primary float-right" routerLink="create">
+      <i class="fas fa-plus fa-lg"></i> &nbsp; Novo Pet
+    </button>
+  </div>
+</div>
+
+<ng-template #empty>
+    <tr>
+        <td class="text--center" colspan="7">Nenhum resultado encontrado!</td>
+    </tr>
+</ng-template>

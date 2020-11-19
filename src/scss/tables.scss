@@ -1,0 +1,18 @@
+.table thead th{
+    padding-top: 5px;
+    border-top: none;
+}
+
+.table thead th label {
+    display: block;
+}
+
+.table thead th input[type=text]{
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+.table tbody td i{
+    cursor: pointer;
+}

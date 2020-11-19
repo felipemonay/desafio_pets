@@ -1,0 +1,14 @@
+<div class="form-group">
+    <label>
+        {{ label }} <i [title]="help" class="fa fa-question-circle fa-lg" data-toggle="tooltip"></i> *
+    </label>
+    <ng-select #owner *ngIf="owners" [items]="owners" 
+            bindLabel="name" 
+            bindValue="id"
+            placeholder="Selecione o dono" 
+            [(ngModel)]="pet.ownerId"
+            [ngModelOptions]="{standalone: true}">
+    </ng-select>
+</div>
+
+    

@@ -1,0 +1,14 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-kerning: auto;
+    font-kerning: auto;
+    background: rgb(60,172,250);
+    background: linear-gradient(135deg, rgba(60,172,250,1) 0%, rgba(60,172,250,1) 79%, rgba(0,212,255,1) 89%);
+}

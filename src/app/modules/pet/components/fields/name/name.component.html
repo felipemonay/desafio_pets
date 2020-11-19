@@ -1,0 +1,6 @@
+<div class="form-group">
+    <label  [for]="name">
+        {{ label }} <i [title]="help" class="fa fa-question-circle fa-lg" data-toggle="tooltip"></i> *
+    </label>
+    <input [(ngModel)]="pet.name" [id]="name" placeholder="Nome do Pet" [name]="name" autocomplete="off" class="form-control" required type="text">
+</div>
