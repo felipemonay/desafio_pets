@@ -4,14 +4,15 @@
         <th scope="col" class="align-middle">Ações</th>
         <th scope="col">
           <label>Nome</label>
-          <input [(ngModel)]="filter.name" id="filterName" name="filterName" type="text"/>
+          <input [(ngModel)]="filter.name" id="filterName" name="filterName" type="text" placeholder="Filtre pelo nome" />
         </th>
         <th scope="col">
           <label>E-mail</label>
-          <input [(ngModel)]="filter.email" id="filterEmail" name="filterEmail" type="text"/></th>
+          <input [(ngModel)]="filter.email" id="filterEmail" name="filterEmail" type="text" placeholder="Filtre pelo email" />
+        </th>
         <th scope="col">
           <label>Telefone</label>
-          <input [(ngModel)]="filter.phone" id="filterPhone" name="filterPhone" type="text"/>
+          <input [(ngModel)]="filter.phone" id="filterPhone" name="filterPhone" type="text" placeholder="Filtre pelo telefone" />
         </th>
     </thead>
     <tbody *ngIf="owners; else empty">
