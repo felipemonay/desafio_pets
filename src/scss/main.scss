@@ -9,5 +9,6 @@ html, body {
     -webkit-text-size-adjust: 100%;
     -webkit-font-kerning: auto;
     font-kerning: auto;
-    background: #e4e4e4;
+    background: rgb(60,172,250);
+    background: linear-gradient(135deg, rgba(60,172,250,1) 0%, rgba(60,172,250,1) 79%, rgba(0,212,255,1) 89%);
 }
