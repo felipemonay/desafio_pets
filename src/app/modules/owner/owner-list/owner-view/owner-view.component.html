@@ -9,8 +9,37 @@
     <p><b>E-mail:</b> {{ _owner.email }}</p>
     <p><b>Telefone:</b> {{ _owner.phone | mask:'(00) 0 0000-0000'}}</p>
 
-    <p>Aqui viria a lista de pets que o dono possui, mas a rota está com problema e por uma questão de tempo deixarei apenas como observação a idéia dessa tela</p>
+    <table class="table table-striped">
+        <thead>
+            <th scope="col">
+              <label>Nome</label>
+            </th>
+            <th scope="col">
+              <label>Apelido</label>
+            </th>
+            <th scope="col">
+              <label>Raça</label>
+            </th>
+            <th scope="col">
+              <label>Espécie</label>
+            </th>
+        </thead>
+        <tbody *ngIf="pets; else empty">
+          <tr *ngFor="let pet of petList">
+            <td scope="row">{{ pet.name }}</td>
+            <td scope="row">{{ pet.nickName }}</td>
+            <td scope="row">{{ pet.breed }}</td>
+            <td scope="row">{{ pet.species }}</td>
+          </tr>
+        </tbody>
+      </table>  
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-outline-primary" (click)="activeModal.close('Close click')">Fechar</button>
 </div>
+
+<ng-template #empty>
+    <tr>
+        <td class="text--center" colspan="7">Nenhum pet encontrado!</td>
+    </tr>
+</ng-template>
