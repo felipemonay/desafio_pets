@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Owner } from 'src/app/models/owner';
 import { OwnerService } from '../owner.service';
 import Swal from 'sweetalert2'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-owner-update',
@@ -13,7 +14,12 @@ export class OwnerUpdateComponent implements OnInit {
   
   public owner: Owner = new Owner;
 
-  constructor(private ownerService: OwnerService, private toastrService: ToastrService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(
+    private ownerService: OwnerService, 
+    private toastrService: ToastrService, 
+    private activatedRoute: ActivatedRoute, 
+    private router: Router,
+    private locationService: Location) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -75,6 +81,10 @@ export class OwnerUpdateComponent implements OnInit {
     }, (err) => {
       return new ErrorHandler();
     });
+  }
+
+  public back() {
+    this.locationService.back();
   }
 
 }

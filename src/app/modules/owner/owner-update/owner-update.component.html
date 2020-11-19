@@ -1,23 +1,26 @@
-<div>
-    <form #formOwner="ngForm" autocomplete="off">
-        <app-name [owner]="owner"></app-name>
+<div class="card card-form">
+    <div class="card-body">
+        <form #formOwner="ngForm" autocomplete="off">
+            <app-name [owner]="owner"></app-name>
 
-        <app-email [owner]="owner"></app-email>
+            <app-email [owner]="owner"></app-email>
 
-        <app-phone [owner]="owner"></app-phone>
-        <div class="">
-            <div class="float-left">
-                <button (click)="delete()" id="btn-delete" class="btn btn-outline-primary">
-                    Deletar &nbsp; <i class="far fa-trash-alt"></i>
-                </button>
-            </div>
-            <div class="float-right">
-                <button [disabled]="!owner.name || !owner.email || !owner.phone"
-                        id="btn-cadastrar" (click)="send()"
-                        class="btn btn-outline-primary">
-                    Atualizar &nbsp; <i class="far fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </form>
+            <app-phone [owner]="owner"></app-phone>
+        </form>
+    </div>
+    <div class="card-footer">
+        <button (click)="delete()" id="btn-delete" class="btn btn-outline-primary float-left">
+            Deletar &nbsp; <i class="far fa-trash-alt"></i>
+        </button>
+
+        <button [disabled]="!owner.name || !owner.email || !owner.phone"
+                id="btn-cadastrar" (click)="send()"
+                class="btn btn-outline-primary float-right">
+            Atualizar &nbsp; <i class="far fa-paper-plane"></i>
+        </button>
+
+        <button class="btn btn-outline-primary float-right mx-4" (click)=back()>
+            Voltar
+        </button>
+    </div>
 </div>
