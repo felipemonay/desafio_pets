@@ -1,3 +1,8 @@
+Desafio realizado utilizando angular.
+
+Após baixar o projeto, utilize npm install para instalar as dependencias e após isso basta utilizar o ng serve.
+
+
 # Desafio Frontend Backoffice Protheus 2020
 
 Olá! Seja bem vindo! Muito obrigado por querer fazer parte do nosso time! 
