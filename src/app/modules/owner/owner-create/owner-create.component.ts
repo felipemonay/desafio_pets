@@ -1,10 +1,9 @@
-import { Component, ErrorHandler, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ControlContainer, NgForm } from '@angular/forms';
+import { Component, ErrorHandler } from '@angular/core';
+import { Location } from '@angular/common';
 import { Owner } from 'src/app/models/owner';
 import { ToastrService } from 'ngx-toastr';
 import { OwnerService } from '../owner.service';
 import { Router } from '@angular/router';
-import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,9 +13,13 @@ import Swal from 'sweetalert2';
 export class OwnerCreateComponent {
   public owner: Owner = new Owner;
 
-  constructor(private ownerService: OwnerService, private toastrService: ToastrService, private router: Router) { }
+  constructor(
+    private ownerService: OwnerService, 
+    private toastrService: ToastrService, 
+    private router: Router, 
+    private locationService: Location) { }
 
-  send() {
+  public send() {
     if(this.owner.name.length <3){
       return Swal.fire('Atenção', 'O nome está muito curto!');
     }
@@ -29,11 +32,15 @@ export class OwnerCreateComponent {
       return Swal.fire('Atenção', 'O telefone deve conter ao menos 10 caracteres ex:(11) 1234-5678');
     }
     
-    this.ownerService.createOwner(this.owner).subscribe(success => {
+    this.ownerService.createOwner(this.owner).subscribe(() => {
       this.toastrService.success('', 'Dados Gravados com sucesso!', {timeOut: 1000});
       return this.router.navigate(['/owner']);
-    }, (err) => {
+    }, () => {
       return new ErrorHandler();
     });
+  }
+
+  public back() {
+    this.locationService.back();
   }
 }

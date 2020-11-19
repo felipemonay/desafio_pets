@@ -1,19 +1,21 @@
-<div>
-    <form #formOwner="ngForm" (submit)="send()" autocomplete="off">
+<div class="card card-form">
+    <div class="card-body">
+    <form #formOwner="ngForm" autocomplete="off">
         <app-name [owner]="owner"></app-name>
 
         <app-email [owner]="owner"></app-email>
 
         <app-phone [owner]="owner"></app-phone>
-    
-        <div class="">
-            <div class="float-right">
-                <button [disabled]="!owner.name || !owner.email || !owner.phone"
-                        id="btn-cadastrar"
-                        class="btn btn-outline-primary">
-                    Cadastrar &nbsp; <i class="far fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
     </form>
+</div>
+    <div class="card-footer">
+        <button [disabled]="!owner.name || !owner.email || !owner.phone"
+                id="btn-cadastrar" (click)="send()"
+                class="btn btn-outline-primary float-right">
+            Cadastrar &nbsp; <i class="far fa-paper-plane"></i>
+        </button>
+        <button class="btn btn-outline-primary float-right mx-4" (click)=back()>
+            Voltar
+        </button>
+    </div>
 </div>

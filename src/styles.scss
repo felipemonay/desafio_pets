@@ -20,6 +20,11 @@ html, body {
     background: #e4e4e4;
 }
 
+.card{
+    border-radius: 10px;
+    box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
 .card-footer{
     background-color: white;
 }
@@ -29,8 +34,6 @@ html, body {
     height: 50%;
     background-color: rgba(255,255,255,0.8);
     margin: 10% auto 0 auto;
-    border-radius: 10px;
-    box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.2);
 }
 
 .card-table{
@@ -55,6 +58,13 @@ html, body {
 
 .table tbody td i{
     cursor: pointer;
+}
+
+.card-form{
+    width: 35%;
+    height: 50%;
+    background-color: rgba(255,255,255,0.8);
+    margin: 10% auto 0 auto;
 }
 
 
