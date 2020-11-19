@@ -1,13 +1,13 @@
 <div class="card card-form">
     <div class="card-body">
-    <form #formOwner="ngForm" autocomplete="off">
-        <app-name [owner]="owner"></app-name>
+        <form #formOwner="ngForm" autocomplete="off">
+            <app-name [owner]="owner"></app-name>
 
-        <app-email [owner]="owner"></app-email>
+            <app-email [owner]="owner"></app-email>
 
-        <app-phone [owner]="owner"></app-phone>
-    </form>
-</div>
+            <app-phone [owner]="owner"></app-phone>
+        </form>
+    </div>
     <div class="card-footer">
         <button [disabled]="!owner.name || !owner.email || !owner.phone"
                 id="btn-cadastrar" (click)="send()"

@@ -12,17 +12,12 @@ import { OwnerViewComponent } from './owner-view/owner-view.component';
 export class OwnerListComponent implements OnInit {
 
   public owners: Array<Owner>;
-  public ownersList: Array<Owner>;
   public filter: Owner = new Owner;
-  public page = 1;
-  public pageSize = 6;
-  public collectionSize = 1;
-  public pageAmount = [2,4,6,8,10];
 
-  constructor(private ownerService: OwnerService, private router: Router, private modalService: NgbModal) {}
-  OnChanges(changes: SimpleChanges): void {
-    console.log(changes)
-  }
+  constructor(
+    private ownerService: OwnerService, 
+    private router: Router, 
+    private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.getOwners();
@@ -30,19 +25,10 @@ export class OwnerListComponent implements OnInit {
 
   public getOwners(){
     this.ownerService.getOwners().subscribe(data => {
-      // this.owners = data;
-      this.ownersList = data;
-      this.collectionSize = this.ownersList.length;
-      this.refreshOwners();
+      this.owners = data;
     }, error => {
         return new ErrorHandler();
     });
-  }
-
-  refreshOwners() {
-    this.owners = this.ownersList
-      .map((owner, i) => ({id: i + 1, ...owner}))
-      .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 
   open(owner) {
