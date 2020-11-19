@@ -31,12 +31,12 @@ export class OwnerListComponent implements OnInit {
     });
   }
 
-  open(owner) {
+  public open(owner) {
     const modalRef = this.modalService.open(OwnerViewComponent, { size: 'xl', scrollable: true });
     modalRef.componentInstance.owner = owner;
   }
 
-  createOwner() {
+  public createOwner() {
     this.router.navigate(['owner/create']);
   };
 

@@ -21,7 +21,7 @@ export class OwnerViewComponent {
     private ownerService: OwnerService, 
     public activeModal: NgbActiveModal) {}
 
-  getOwnerPets(id){    
+  public getOwnerPets(id){    
     this.ownerService.getOwnerPets(id).subscribe(data => {
       this.pets = data;      
     }, error => {
