@@ -17,4 +17,44 @@ html, body {
     -webkit-text-size-adjust: 100%;
     -webkit-font-kerning: auto;
     font-kerning: auto;
+    background: #e4e4e4;
 }
+
+.card-footer{
+    background-color: white;
+}
+
+.card-home{
+    width: 35%;
+    height: 50%;
+    background-color: rgba(255,255,255,0.8);
+    margin: 10% auto 0 auto;
+    border-radius: 10px;
+    box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.card-table{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table thead th{
+    padding-top: 5px;
+}
+
+.table thead th label {
+    display: block;
+}
+
+.table thead th input[type=text]{
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+.table tbody td i{
+    cursor: pointer;
+}
+
+

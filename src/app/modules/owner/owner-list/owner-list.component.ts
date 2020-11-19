@@ -1,4 +1,4 @@
-import { Component, ErrorHandler, OnInit } from '@angular/core';
+import { Component, ErrorHandler, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Owner } from 'src/app/models/owner';
@@ -20,6 +20,9 @@ export class OwnerListComponent implements OnInit {
   public pageAmount = [2,4,6,8,10];
 
   constructor(private ownerService: OwnerService, private router: Router, private modalService: NgbModal) {}
+  OnChanges(changes: SimpleChanges): void {
+    console.log(changes)
+  }
 
   ngOnInit(): void {
     this.getOwners();
@@ -27,6 +30,7 @@ export class OwnerListComponent implements OnInit {
 
   public getOwners(){
     this.ownerService.getOwners().subscribe(data => {
+      // this.owners = data;
       this.ownersList = data;
       this.collectionSize = this.ownersList.length;
       this.refreshOwners();

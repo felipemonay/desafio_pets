@@ -1,53 +1,50 @@
-<div>
-    <table class="table table-striped">
-      <thead>
-          <th scope="col">Ações</th>
-          <th scope="col">
-            <label>Nome</label>
-            <input [(ngModel)]="filter.name" id="filterName" name="filterName" />
-          </th>
-          <th scope="col">
-            <label>E-mail</label>
-            <input [(ngModel)]="filter.email" id="filterEmail" name="filterEmail" /></th>
-          <th scope="col">
-            <label>Telefone</label>
-            <input [(ngModel)]="filter.phone" id="filterPhone" name="filterPhone" />
-          </th>
-      </thead>
-      <tbody *ngIf="owners; else empty">
-        <tr *ngFor="let owner of (owners | filterOwnerTable: filter)">
-          <td scope="row">
-            <button routerLink="update" [queryParams]="{ id: owner.id }" >
-              <i class="fas fa-edit"></i>
-            </button>
-            <button (click)="open(owner)">
-              <i class="far fa-eye"></i>
-            </button>
-          </td>
-          <td scope="row">{{ owner.name }}</td>
-          <td scope="row">{{ owner.email }}</td>
-          <td scope="row">{{ owner.phone | mask:'(00) 0 0000-0000'}}</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="d-flex justify-content-between p-2">
-      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshOwners()">
-      </ngb-pagination>
-    
-      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshOwners()">
-        <option *ngFor="let amount of pageAmount" [ngValue]="amount">{{ amount }} donos por página</option>
-      </select>
-    </div>
-  </div>
-  <button routerLink="create">
-      Novo Dono
-  </button>
-  
-  
-  
-  <ng-template #empty>
-      <tr>
-          <td class="text-center" colspan="7">Nenhum resultado encontrado!</td>
+<div class="card card-table">
+  <table class="table table-striped">
+    <thead>
+        <th scope="col" class="align-middle">Ações</th>
+        <th scope="col">
+          <label>Nome</label>
+          <input [(ngModel)]="filter.name" id="filterName" name="filterName" type="text"/>
+        </th>
+        <th scope="col">
+          <label>E-mail</label>
+          <input [(ngModel)]="filter.email" id="filterEmail" name="filterEmail" type="text"/></th>
+        <th scope="col">
+          <label>Telefone</label>
+          <input [(ngModel)]="filter.phone" id="filterPhone" name="filterPhone" type="text"/>
+        </th>
+    </thead>
+    <tbody *ngIf="owners; else empty">
+      <tr *ngFor="let owner of (owners | filterOwnerTable: filter)">
+        <td scope="row">
+          <i class="fas fa-edit mx-2 text-primary" routerLink="update" [queryParams]="{ id: owner.id }" title="Atualizar"></i>
+          <i class="far fa-eye mx-2 text-success" (click)="open(owner)" title="Visualizar"></i>
+        </td>
+        <td scope="row">{{ owner.name }}</td>
+        <td scope="row">{{ owner.email }}</td>
+        <td scope="row">{{ owner.phone | mask:'(00) 0 0000-0000'}}</td>
       </tr>
-  </ng-template>
+    </tbody>
+  </table>
+
+  <!-- <div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshOwners()">
+    </ngb-pagination>
+  
+    <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshOwners()">
+      <option *ngFor="let amount of pageAmount" [ngValue]="amount">{{ amount }} donos por página</option>
+    </select>
+  </div> -->
+
+  <div class="card-footer">
+    <button class="btn btn-outline-primary float-right" routerLink="create">
+      <i class="fas fa-plus fa-lg"></i> &nbsp; Novo Dono
+    </button>
+  </div>
+</div>
+  
+<ng-template #empty>
+    <tr>
+        <td class="text-center" colspan="7">Nenhum resultado encontrado!</td>
+    </tr>
+</ng-template>
