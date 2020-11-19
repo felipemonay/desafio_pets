@@ -1,33 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-<a class="navbar-brand" [routerLink]="'.'">Desafio Pets</a>
+  <a class="navbar-brand" [routerLink]="'.'">Desafio Pets</a>
 
-<button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
-    &#9776;
-</button>
+  <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      &#9776;
+  </button>
 
-<div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" [ngStyle]="{display: isMenuCollapsed ? 'none' : 'block'}">
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" routerLink="home" (click)="isMenuCollapsed = true">Início</a>
-        </li>
-        <li class="nav-item" ngbDropdown>
-            <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
-                Donos
-              </a>
-              <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-                <a ngbDropdownItem href="#" routerLink="owner">Gerenciar</a>
-                <a ngbDropdownItem href="#" routerLink="owner/create">Cadastrar</a>
-              </div>
-        </li>
-        <li class="nav-item" ngbDropdown>
-            <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
-                Pets
-              </a>
-              <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-                <a ngbDropdownItem href="#" routerLink="pet">Gerenciar</a>
-                <a ngbDropdownItem href="#" routerLink="pet/create">Cadastrar</a>
-              </div>
-        </li>
-    </ul>
-</div>
+  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" [ngStyle]="{display: isMenuCollapsed ? 'none' : 'block'}">
+      <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link" routerLink="home" (click)="isMenuCollapsed = true">Início</a>
+          </li>
+          <li class="nav-item" ngbDropdown>
+              <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
+                  Donos
+                </a>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+                  <a ngbDropdownItem href="#" routerLink="owner">Gerenciar</a>
+                  <a ngbDropdownItem href="#" routerLink="owner/create">Cadastrar</a>
+                </div>
+          </li>
+          <li class="nav-item" ngbDropdown>
+              <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
+                  Pets
+                </a>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+                  <a ngbDropdownItem href="#" routerLink="pet">Gerenciar</a>
+                  <a ngbDropdownItem href="#" routerLink="pet/create">Cadastrar</a>
+                </div>
+          </li>
+      </ul>
+  </div>
 </nav>
